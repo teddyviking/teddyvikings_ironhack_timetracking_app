@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Project.all.destroy_all
-projects = Project.create([{ id: 1, name: 'Iron F', description: 'Cool project'},
-							{id: 2, name: 'lovely day', description: "Not any more"},
-							{id: 3, name: 'Final Ironhack project', description: 'You are gonna die, baby'}])
+projects = Project.create([{name: 'Iron F', description: 'Cool project'},
+							{name: 'lovely day', description: "Not any more"},
+							{name: 'Final Ironhack project', description: 'You are gonna die, baby'}])
