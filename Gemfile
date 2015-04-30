@@ -46,5 +46,9 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'quiet_assets'
+
+
 end
+
+gem 'bootstrap-sass', '~> 3.3.4'
 

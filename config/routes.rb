@@ -2,8 +2,24 @@ Rails.application.routes.draw do
 
   get '/' => 'site#home'
   get '/contact' => 'site#contact'
-  get '/projects' => 'projects#index'
-  get '/projects/:id' => 'projects#show'
+
+  get '/projects' => 'projects#index', as: :projects
+  get '/projects/new' => 'projects#new', as: :new_project
+  get '/projects/:id' => 'projects#show', as: :project
+  post '/projects' => 'projects#create'
+
+
+  get '/projects/:project_id/entries' => 'entries#index', as: :project_entries
+  get '/projects/:project_id/entries/new' => 'entries#new', as: :new_project_entries
+
+
+  post '/projects/:project_id/entries' => 'entries#create'
+  get '/projects/:project_id/entries/:id/edit' => 'entries#edit', as: :edit_project_entries
+  patch '/projects/:project_id/entries/:id' => 'entries#update', as: :project_entry
+  delete '/projects/:project_id/entries/:id' => 'entries#destroy'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
