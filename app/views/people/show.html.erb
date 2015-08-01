@@ -1,0 +1,19 @@
+<h1><%=@person.name %></h1>
+
+
+<%= form_for @person, url: associate_project_path do |f| %>
+
+	<%= select_tag(:project_id, options_from_collection_for_select(@available_projects, :id, :name)) %>
+
+	<%= f.submit 'Add Project' %>
+
+
+<% end %>
+
+<h2>Projects <%= @person.name %> is working on</h2>
+<ul>
+<% @person.projects.each do |project| %>
+	<li><%= link_to project.name, project_path(project) %></li>
+
+<% end %>
+</ul>

@@ -4,3 +4,12 @@
 <p>Total hours in February: <%= @total_hours %></p>
 
 <%= link_to "Entries", project_entries_path(@project), title: "entries" %>
+
+<h2>People working on this project</h2>
+
+<ul>
+	<% @project.people.each do |person| %>
+		<li><%= link_to person.name, person_path(person)%></li>
+	<% end %>
+
+</ul>

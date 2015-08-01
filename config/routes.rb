@@ -1,22 +1,17 @@
 Rails.application.routes.draw do
 
-  get '/' => 'site#home'
+  root to: 'site#home'
+
+  resources :projects do
+    resources :entries
+  end
+
   get '/contact' => 'site#contact'
 
-  get '/projects' => 'projects#index', as: :projects
-  get '/projects/new' => 'projects#new', as: :new_project
-  get '/projects/:id' => 'projects#show', as: :project
-  post '/projects' => 'projects#create'
+  resources :people
 
 
-  get '/projects/:project_id/entries' => 'entries#index', as: :project_entries
-  get '/projects/:project_id/entries/new' => 'entries#new', as: :new_project_entries
-
-
-  post '/projects/:project_id/entries' => 'entries#create'
-  get '/projects/:project_id/entries/:id/edit' => 'entries#edit', as: :edit_project_entries
-  patch '/projects/:project_id/entries/:id' => 'entries#update', as: :project_entry
-  delete '/projects/:project_id/entries/:id' => 'entries#destroy'
+  patch '/people/:id/projects' => 'people#associate_project', as: :associate_project
 
 
 
